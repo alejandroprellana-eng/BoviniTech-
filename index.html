@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173d2b">
+  <meta name="description" content="BOVINO TECH: calidad del campo, confianza para tu hogar. Productos lácteos y cortes de carne en Huacaraje, Beni.">
+  <title>BOVINO TECH</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="brand-home" aria-label="Volver al inicio">
+      <img id="header-logo" src="logo-bovino-tech.png" alt="Logo BOVINO TECH" onerror="this.style.display='none'">
+      <span class="brand-text"><strong>BOVINO <span>TECH</span></strong><small>HUACARAJE · BENI</small></span>
+    </a>
+    <button class="cart-shortcut" id="open-cart" type="button" aria-label="Abrir carrito">
+      <span aria-hidden="true">🛒</span> Carrito <b id="cart-count">0</b>
+    </button>
+  </header>
+
+  <main>
+    <section class="welcome screen active" id="welcome-screen">
+      <div class="welcome-shade"></div>
+      <div class="welcome-content">
+        <img class="welcome-logo" id="welcome-logo" src="logo-bovino-tech.png" alt="Logo BOVINO TECH" onerror="this.style.display='none'">
+        <p class="eyebrow">DEL CAMPO A TU HOGAR</p>
+        <h1>BOVINO <span>TECH</span></h1>
+        <p class="welcome-slogan">Calidad del campo, confianza para tu hogar</p>
+        <p class="welcome-location">Productos lácteos y carne en Huacaraje, Beni</p>
+        <button class="button button-gold button-large" id="enter-store" type="button">PRESIONE AQUÍ PARA INGRESAR <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="welcome-note">Tradición ganadera · Atención cercana</div>
+    </section>
+
+    <section class="store screen" id="store-screen">
+      <section class="store-hero">
+        <div class="localizacion-bovino">
+  <p>📍 Estamos en Huacaraje, Beni, Bolivia</p>
+  <a href="https://maps.app.goo.gl/H1R4n3hZWaFitKFY9"
+     target="_blank"
+     rel="noopener noreferrer">
+    📍 CÓMO LLEGAR
+  </a>
+</div>
+        <div>
+          <p class="eyebrow">BIENVENIDO A BOVINO TECH</p>
+          <h2>Calidad del campo,<br><span>confianza para tu hogar.</span></h2>
+          <p>Elige tus productos y prepara tu pedido para recogerlo en el establecimiento o puede aser tu pedido y sera entregado en tu domicilio.</p>
+        </div>
+         <img class="welcome-logo" id="welcome-logo" src="logo-bovino-tech.png" alt="Logo BOVINO TECH" onerror="this.style.display='none'">
+      </section>
+
+      <div class="store-toolbar">
+        <div>
+          <h2 class="section-title">Nuestro catálogo</h2>
+          <p class="muted">Selecciona una categoría para ver los productos.</p>
+        </div>
+        <div class="category-tabs" role="group" aria-label="Categorías de productos">
+          <button class="category-tab active" type="button" data-category="TODOS">Todos</button>
+          <button class="category-tab" type="button" data-category="LECHE">🥛 Leche</button>
+          <button class="category-tab" type="button" data-category="CARNE">🥩 Carne</button>
+        </div>
+      </div>
+
+      <div class="notice" id="price-notice"><strong>Importante:</strong> los productos con precio pendiente de configuración no se pueden agregar al carrito.</div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+
+      <section class="pickup-banner">
+        <span class="pickup-icon" aria-hidden="true">📍</span>
+        <div><strong>Pedido para recoger en el establecimiento o as tu pedido y te lo llevamos a la puerta de tu casa </strong><p>Contamos con entrega a domicilio. Coordina tu pedido por WhatsApp.</p></div>
+      </section>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="cart-modal" hidden>
+    <section class="modal cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <div class="modal-heading">
+        <div><p class="eyebrow">TU SELECCIÓN</p><h2 id="cart-title">Carrito de compras</h2></div>
+        <button class="icon-button" type="button" data-close-modal="cart-modal" aria-label="Cerrar">×</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-footer">
+        <button class="text-button" id="clear-cart" type="button">Vaciar carrito</button>
+        <div class="total-row"><span>Total estimado</span><strong id="cart-total">Bs 0,00</strong></div>
+        <p class="muted small">El pedido se confirma cuando lo envíes por WhatsApp. Este sitio no verifica pagos automáticamente.</p>
+        <button class="button button-primary button-full" id="go-checkout" type="button">Continuar con el pedido</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="checkout-modal" hidden>
+    <section class="modal checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+      <div class="modal-heading">
+        <div><p class="eyebrow">ÚLTIMO PASO</p><h2 id="checkout-title">Confirmar pedido</h2></div>
+        <button class="icon-button" type="button" data-close-modal="checkout-modal" aria-label="Cerrar">×</button>
+      </div>
+      <form id="checkout-form">
+        <label for="customer-name">Nombre del cliente <span>*</span></label>
+        <input id="customer-name" name="customerName" autocomplete="name" required maxlength="100" placeholder="Escribe tu nombre">
+
+        <label for="customer-phone">Número de celular <span>*</span></label>
+        <input id="customer-phone" name="customerPhone" autocomplete="tel" inputmode="tel" required maxlength="25" placeholder="Tu número de contacto">
+
+        <label for="payment-method">Método de pago <span>*</span></label>
+        <select id="payment-method" name="paymentMethod" required>
+          <option value="">Selecciona una opción</option>
+          <option value="QR">Pago mediante QR</option>
+          <option value="EFECTIVO">Pago en efectivo al recoger</option>
+        </select>
+
+        <div class="qr-panel" id="qr-panel" hidden>
+          <div class="qr-placeholder" id="qr-placeholder">
+            <img id="payment-qr" src="qr-comercial.png" alt="QR comercial de pago" onerror="this.style.display='none'; document.getElementById('qr-fallback').hidden=false">
+            <p id="qr-fallback" hidden>Agrega tu archivo <strong>qr-comercial.png</strong> a la carpeta del proyecto para mostrar tu QR.</p>
+          </div>
+          <p class="qr-total">Total de la compra: <strong id="qr-total">Bs 0,00</strong></p>
+          <p class="muted small">Verifica los datos en tu aplicación bancaria. El sitio no puede confirmar si el pago se realizó.</p>
+        </div>
+
+        <div class="cash-panel" id="cash-panel" hidden>
+          <p>Elegiste pagar en efectivo en el establecimiento al recoger tu pedido.</p>
+        </div>
+
+        <label for="customer-notes">Observaciones (opcional)</label>
+        <textarea id="customer-notes" name="notes" rows="3" maxlength="500" placeholder="Por ejemplo: preferencias del corte o detalles del pedido"></textarea>
+        <div class="checkout-total"><span>Total del pedido</span><strong id="checkout-total">Bs 0,00</strong></div>
+        <p class="form-error" id="form-error" role="alert"></p>
+        <button class="button button-primary button-full" type="submit">Preparar mensaje en WhatsApp <span aria-hidden="true">↗</span></button>
+        <p class="muted small center">WhatsApp se abrirá con el mensaje preparado. Debes enviarlo para contactar al negocio.</p>
+      </form>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer class="site-footer"><strong>BOVINO TECH</strong> · Huacaraje, Beni, Bolivia <span>Calidad del campo, confianza para tu hogar. | AMM</span>
+ <h3>Créditos Oficiales</h3>
+ <p>Proyecto desarrollado por <b>Alejandro Orellana Mercado </b> y <b>Daniel Paz Orellana</b><br>U.E. «13 de Abril» · BTH Sistemas Informáticos</p>
+ <p>Tutor: Lic. Angel Franco Pinaicobo · Gestión 2026</p>
+ <div class="alejo"><a href="https://www.instagram.com/bovino_tech?obrf=MTJhczJ0ZzdlcWo3aA%3D%3D" target="_blank" rel="noopener">Instagram BovinoTech AD</a><a href="https://www.facebook.com/share/1CHqPN4xtX/" target="_blank" rel="noopener">facebook @BovinoTech AD</a>
+   <a href="https://www.tiktok.com/@bovinotech.ad?_r=1&_t=ZS-9B8IchQGoCb" target="_blank" rel="noopener">TikTok @BovinoTech AD</a></div>
+
+ <p class="lema">«la ganaderia parte del orgullo huacarajeño»</p>
+ <small>San José de Huacaraje, Beni, Bolivia · Pedidos: +591 63293389</small>
+</footer>
+  <script src="script.js"></script>
+
+</body>
+</html>
